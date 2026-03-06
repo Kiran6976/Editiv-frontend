@@ -1,0 +1,232 @@
+.services-section {
+  padding: 120px 10%;
+  position: relative;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.services-label {
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0.95;
+  margin-bottom: 14px;
+}
+
+.services-title {
+  font-size: 44px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.services-subtitle {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.75;
+  opacity: 0.86;
+}
+
+/* Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+/* Card */
+.service-card {
+  --sheen-x: 50%;
+  --sheen-y: 50%;
+
+  position: relative;
+  padding: 34px 30px;
+  border-radius: 22px;
+
+  background: linear-gradient(135deg,
+      rgba(0, 255, 150, 0.10),
+      rgba(0, 0, 0, 0.65));
+
+  border: 1px solid rgba(0, 255, 150, 0.20);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.65),
+    inset 0 0 14px rgba(0, 255, 150, 0.06);
+
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+/* Dynamic sheen that follows cursor */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--sheen-x) var(--sheen-y),
+      rgba(0, 255, 150, 0.18),
+      transparent 55%);
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+/* Animated neon border trace on hover */
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg,
+      rgba(0, 255, 136, 0.0),
+      rgba(0, 255, 136, 0.5),
+      rgba(0, 255, 200, 0.5),
+      rgba(0, 255, 136, 0.0));
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: borderTrace 3s linear infinite;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card:hover {
+  border-color: rgba(0, 255, 150, 0.35);
+  box-shadow:
+    0 28px 85px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(0, 255, 150, 0.2);
+}
+
+/* Typography */
+.service-name {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.service-tagline {
+  font-size: 15.5px;
+  line-height: 1.7;
+  opacity: 0.88;
+  margin-bottom: 18px;
+}
+
+/* Points list */
+.service-points {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.service-points li {
+  font-size: 15px;
+  opacity: 0.88;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-points li::before {
+  content: "✔";
+  color: var(--neon);
+  text-shadow: 0 0 10px rgba(0, 255, 150, 0.55);
+}
+
+/* Button (uses your existing .btn-neon base) */
+.btn-cta {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 999px;
+  padding: 13px 28px;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+.cta-arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.btn-cta:hover .cta-arrow {
+  transform: translateX(6px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .services-section {
+    padding: 90px 6%;
+  }
+
+  .services-title {
+    font-size: 34px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Make CTA button NOT full width */
+.service-card .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+  /* ✅ prevents full width */
+  min-width: 160px;
+  /* ✅ consistent size */
+  max-width: fit-content;
+
+  padding: 12px 26px;
+  border-radius: 999px;
+
+  margin-top: 10px;
+}
+
+.service-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--neon);
+  font-size: 20px;
+
+  /* ❌ remove circle styles */
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  /* subtle glow only */
+  filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.6));
+}

@@ -1,0 +1,249 @@
+.founder-section {
+  padding: 120px 8% 0;
+  background: #000;
+  overflow: hidden;
+}
+
+
+
+.founder-wrapper {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* IMAGE STACK */
+
+.founder-image-stack {
+  position: relative;
+  width: 320px;
+}
+
+.stack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+}
+
+/* Glow layer */
+
+.stack.glow {
+  background: #00ff9c;
+  filter: blur(40px);
+  opacity: .6;
+  z-index: 1;
+}
+
+/* Offset layer */
+
+.stack.layer {
+  background: #00ff9c;
+  transform: translate(18px, 22px);
+  opacity: .8;
+  z-index: 2;
+}
+
+/* Main image */
+
+.founder-img {
+  position: relative;
+  width: 100%;
+  border-radius: 22px;
+  z-index: 3;
+  box-shadow: 0 0 60px rgba(0, 255, 160, .6);
+}
+
+/* Badge */
+
+.social-badge {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: #00ff9c;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 4;
+  box-shadow: 0 0 20px rgba(0, 255, 160, .8);
+}
+
+.social-badge span {
+  font-weight: 900;
+}
+
+/* CONTENT */
+
+.founder-content {
+  max-width: 520px;
+}
+
+.founder-small {
+  color: #00ff9c;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.founder-content h2 {
+  color: white;
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.founder-content h4 {
+  color: #00ff9c;
+  margin-bottom: 24px;
+}
+
+.founder-content p {
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  font-size: 15px;
+}
+
+/* Responsive */
+
+@media(max-width:900px) {
+  .founder-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .founder-image-stack {
+    margin-bottom: 40px;
+  }
+}
+
+/* ===== CONTACT FOOTER BOX ===== */
+
+.contact-footer-box {
+  margin-top: 120px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+/* Small label */
+
+.contact-small {
+  color: #00ff9c;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* Title */
+
+.contact-title {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 45px;
+}
+
+/* Buttons container */
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+
+/* Base button */
+
+.contact-btn {
+  padding: 14px 42px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  transition: .3s ease;
+}
+
+/* Neon filled button */
+
+.contact-btn.primary {
+  background: #00ff9c;
+  color: #000;
+  box-shadow: 0 0 25px rgba(0, 255, 160, .9);
+}
+
+.contact-btn.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px rgba(0, 255, 160, 1);
+}
+
+/* Neon outline button */
+
+.contact-btn.secondary {
+  border: 1px solid #00ff9c;
+  color: #00ff9c;
+  box-shadow: 0 0 18px rgba(0, 255, 160, .5);
+}
+
+.contact-btn.secondary:hover {
+  background: #00ff9c;
+  color: #000;
+}
+
+/* ===== FOOTER STRIP ===== */
+
+.footer-strip {
+  width: 100%;
+  padding: 26px 0;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(0, 255, 160, 0.2);
+}
+
+/* Social icons */
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #00ff9c;
+}
+
+.social-icons a {
+  color: #00ff9c;
+  cursor: pointer;
+  transition: .3s ease;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  transform: scale(1.25);
+  color: #fff;
+}
+
+/* Copyright */
+
+.footer-copy {
+  margin-top: 18px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:700px) {
+
+  .contact-title {
+    font-size: 38px;
+  }
+
+  .contact-buttons {
+    gap: 20px;
+  }
+
+  .social-icons {
+    gap: 35px;
+  }
+}

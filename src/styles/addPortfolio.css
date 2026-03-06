@@ -1,0 +1,129 @@
+.add-portfolio-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+
+.section-title {
+  color: #00ff8f;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.portfolio-box {
+  width: 420px;
+  padding: 30px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #0c0c0c, #060606);
+  box-shadow: 0 0 40px rgba(0,255,150,.15);
+}
+
+.portfolio-box input,
+.portfolio-box select,
+.portfolio-box textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 12px;
+  background: #050b08;   /* instead of transparent */
+  border: 1px solid #222;
+  border-radius: 10px;
+  color: white;
+  outline: none;
+  font-size: 14px;
+}
+
+.portfolio-box select option {
+  background: #050b08;
+  color: white;
+}
+.portfolio-box input:focus,
+.portfolio-box select:focus,
+.portfolio-box textarea:focus {
+  border-color: #00ff8f;
+  box-shadow: 0 0 10px rgba(0,255,150,.4);
+}
+.portfolio-box input::placeholder,
+.portfolio-box textarea::placeholder {
+  color: #888;
+}
+
+
+.create-folder-toggle {
+  color: #00ff8f;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.create-folder-box {
+  margin-bottom: 16px;
+}
+
+.btn-neon {
+  width: 100%;
+  background: #00ff8f;
+  color: black;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.btn-main {
+  width: 100%;
+  margin-top: 10px;
+  background: linear-gradient(90deg,#00ff8f,#00ffaa);
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* preview box */
+.image-preview {
+  margin: 14px 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,255,150,0.25);
+  box-shadow: 0 0 25px rgba(0,255,150,0.12);
+}
+
+.image-preview img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Loading layout inside button */
+.btn-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.25);
+  border-top-color: rgba(0,0,0,0.9);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Disable button look */
+.btn-main:disabled,
+.btn-neon:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}

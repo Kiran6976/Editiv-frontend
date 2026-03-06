@@ -1,0 +1,135 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  /* ✅ fixed navbar height so it doesn't grow with logo */
+  height: 82px;
+
+  /* ✅ horizontal padding only (no vertical padding) */
+  padding: 0 10%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 1000;
+
+  /* Base transparent glass */
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: background 0.4s ease, box-shadow 0.4s ease, height 0.35s ease;
+}
+
+/* Strong glass on scroll */
+.navbar-glass {
+  background: linear-gradient(135deg,
+      rgba(0, 255, 136, 0.08),
+      rgba(0, 0, 0, 0.6));
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(0, 255, 136, 0.25);
+
+  box-shadow:
+    0 10px 30px rgba(0, 255, 136, 0.15),
+    inset 0 0 10px rgba(255, 255, 255, 0.05);
+
+  /* ✅ slightly shorter on scroll */
+  height: 74px;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-logo img {
+  /* ✅ big logo but will never increase navbar height */
+  max-height: 130px;
+  width: auto;
+  object-fit: contain;
+
+
+
+  transition: transform 0.25s ease, filter 0.25s ease, max-height 0.35s ease;
+}
+
+.nav-logo:hover img {
+  transform: scale(1.05);
+
+}
+
+/* ✅ a bit smaller on scroll */
+.navbar-glass .nav-logo img {
+  max-height: 96px;
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 34px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.nav-links li:hover {
+  color: var(--neon);
+}
+
+/* Neon underline */
+.nav-links li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: var(--neon);
+  transition: 0.3s ease;
+  box-shadow: 0 0 10px var(--neon);
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    height: 72px;
+    padding: 0 6%;
+  }
+
+  .navbar-glass {
+    height: 66px;
+  }
+
+  .nav-logo img {
+    max-height: 40px;
+  }
+
+  .navbar-glass .nav-logo img {
+    max-height: 36px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+}

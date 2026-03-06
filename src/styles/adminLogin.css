@@ -1,0 +1,50 @@
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #050b08;
+}
+
+/* Card */
+
+.admin-login-card {
+  width: 360px;
+  padding: 40px 32px;
+  border-radius: 22px;
+  text-align: center;
+}
+
+/* Title */
+
+.admin-login-card h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  font-weight: 800;
+}
+
+/* Inputs */
+
+.admin-login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  background: transparent;
+  border: 1px solid rgba(0,255,150,0.4);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.admin-login-card input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+/* Error */
+
+.error {
+  color: #ff4d4d;
+  margin-bottom: 12px;
+}
+
+/* Button already neon styled */

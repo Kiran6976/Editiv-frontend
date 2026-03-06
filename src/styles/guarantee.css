@@ -1,0 +1,37 @@
+.guarantee-section {
+  padding: 120px 8%;
+  display: flex;
+  justify-content: center;
+}
+
+.guarantee-wrapper {
+  position: relative;
+}
+
+/* back tilted layer */
+
+.guarantee-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  transform: rotate(-2deg) translateY(8px);
+  border: 2px solid rgba(0,255,150,0.5);
+}
+
+/* main strip */
+
+.guarantee-main {
+  position: relative;
+  padding: 26px 70px;
+  border-radius: 14px;
+  font-size: 34px;
+  font-weight: 800;
+  color: #002b14;
+  text-align: center;
+
+  background: linear-gradient(90deg, #00ff88, #00cc66);
+
+  box-shadow: 
+    0 0 30px rgba(0,255,150,0.6),
+    0 0 80px rgba(0,255,150,0.3);
+}

@@ -1,0 +1,123 @@
+.booking-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.booking-modal {
+  width: 420px;
+  max-width: 90%;
+  padding: 35px;
+
+  background: rgba(0, 255, 136, 0.06);
+  backdrop-filter: blur(16px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(0,255,136,0.3);
+
+  box-shadow:
+    0 0 30px rgba(0,255,136,0.25),
+    inset 0 0 10px rgba(255,255,255,0.05);
+
+  position: relative;
+  animation: scaleUp 0.3s ease;
+}
+
+.booking-modal h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.booking-form input,
+.booking-form textarea {
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,255,136,0.3);
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  outline: none;
+}
+
+.booking-form textarea {
+  resize: none;
+  height: 90px;
+}
+
+.booking-form button {
+  margin-top: 10px;
+  padding: 14px;
+  background: var(--neon);
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.booking-form button:hover {
+  box-shadow: 0 0 20px var(--neon);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.success-box {
+  text-align: center;
+  color: var(--neon);
+  font-size: 20px;
+  padding: 40px 20px;
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+.success-box p {
+  color: white;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 10px var(--neon);
+  }
+  to {
+    text-shadow: 0 0 25px var(--neon);
+  }
+}
+
+.error-text {
+  color: #ff4d4d;
+  text-align: center;
+  font-size: 14px;
+}
+

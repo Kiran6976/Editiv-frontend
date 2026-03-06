@@ -1,0 +1,96 @@
+/* Section wrapper */
+.logo-wrapper {
+  position: relative;
+  padding: 120px 8%;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Particle canvas — fills the section, stays behind */
+.logo-particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* All real content sits above the canvas */
+.logo-content {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-wrapper h2 {
+  font-size: 42px;
+  margin-bottom: 70px;
+}
+
+/* Slider container (no box) */
+.logo-slider {
+  width: 100%;
+  overflow: hidden;
+  /* hides overflowing logos */
+}
+
+/* Sliding track */
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+
+  width: max-content;
+  animation: slide 28s linear infinite;
+}
+
+/* Logos */
+.logo-track img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+
+  filter: brightness(1.15) contrast(1.1);
+  opacity: 0.95;
+
+  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover effect */
+.logo-track img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.35);
+  opacity: 1;
+}
+
+/* Infinite sliding animation */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .logo-wrapper {
+    padding: 90px 6%;
+  }
+
+  .logo-wrapper h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+  }
+
+  .logo-track {
+    gap: 50px;
+    animation-duration: 22s;
+  }
+
+  .logo-track img {
+    width: 100px;
+  }
+}

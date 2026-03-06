@@ -1,0 +1,95 @@
+.stats-wrapper {
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.stats-wrapper h2 {
+  font-size: 42px;
+  margin-bottom: 70px;
+}
+
+/* MAIN GLASS BAR */
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 60px 40px;
+  border-radius: 28px;
+
+  background: rgba(0, 30, 15, 0.6);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(0,255,150,0.25);
+
+  box-shadow:
+    inset 0 0 40px rgba(0,255,150,0.08),
+    0 0 35px rgba(0,255,150,0.25);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* TOP GLOW LINE */
+
+.stats-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00ff88,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+/* EACH BOX */
+
+.stat-box {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-8px);
+}
+
+/* SEPARATORS */
+
+.stat-box:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: linear-gradient(
+    transparent,
+    rgba(0,255,150,0.6),
+    transparent
+  );
+}
+
+/* NUMBER */
+
+.stat-number {
+  font-size: 58px;
+  font-weight: 800;
+  color: var(--neon);
+  text-shadow: 0 0 20px rgba(0,255,150,0.6);
+  margin-bottom: 8px;
+}
+
+/* LABEL */
+
+.stat-label {
+  font-size: 16px;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}

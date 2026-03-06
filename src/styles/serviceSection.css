@@ -1,0 +1,172 @@
+/* ===== SECTION ===== */
+.service-section {
+  padding: 120px 8%;
+  background: #000;
+  text-align: center;
+}
+
+.service-label {
+  color: #00ff9c;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-shadow: 0 0 14px rgba(0, 255, 160, 0.5);
+}
+
+.service-title {
+  color: white;
+  font-size: 38px;
+  margin-bottom: 70px;
+  font-weight: 700;
+}
+
+/* ===== GRID ===== */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ===== CARD ===== */
+.svc-card {
+  position: relative;
+  text-align: left;
+  padding: 36px 30px 30px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(0, 0, 0, 0.6) 100%);
+  border: 1px solid rgba(0, 255, 160, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: default;
+}
+
+/* Hover lift */
+.svc-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 160, 0.4);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.65),
+    0 0 30px rgba(0, 255, 160, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Subtle corner glow on hover */
+.svc-card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 160, 0.15), transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.svc-card:hover::before {
+  opacity: 1;
+}
+
+/* ===== ICON WRAP ===== */
+.svc-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(0, 255, 160, 0.1);
+  border: 1px solid rgba(0, 255, 160, 0.25);
+  margin-bottom: 22px;
+  transition: background 0.3s ease;
+}
+
+.svc-card:hover .svc-icon-wrap {
+  background: rgba(0, 255, 160, 0.18);
+}
+
+.svc-icon {
+  font-size: 22px;
+  color: #00ff9c;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 160, 0.5));
+}
+
+/* ===== TAG PILL ===== */
+.svc-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #00ff9c;
+  background: rgba(0, 255, 160, 0.1);
+  border: 1px solid rgba(0, 255, 160, 0.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* ===== TEXT ===== */
+.svc-name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.svc-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ===== BOTTOM ACCENT LINE ===== */
+.svc-line {
+  margin-top: 28px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(0, 255, 160, 0.5), transparent);
+  width: 60%;
+  transition: width 0.4s ease;
+}
+
+.svc-card:hover .svc-line {
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-section {
+    padding: 80px 6%;
+  }
+
+  .service-title {
+    font-size: 28px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}

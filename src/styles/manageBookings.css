@@ -1,0 +1,140 @@
+.booking-table-wrapper {
+  overflow-x: auto;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: white;
+}
+
+.booking-table th {
+  color: var(--neon);
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.status.new {
+  background: rgba(0,255,136,0.2);
+  color: var(--neon);
+}
+
+.delete-btn {
+  background: red;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.booking-table-wrapper {
+  margin-top: 25px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(0,255,150,0.25);
+  overflow: hidden;
+
+  box-shadow: 0 0 30px rgba(0,255,150,0.12);
+}
+
+/* Table */
+
+.booking-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Header */
+
+.booking-table thead {
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.booking-table th {
+  padding: 14px 16px;
+  color: var(--neon);
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid rgba(0,255,150,0.2);
+}
+
+/* Rows */
+
+.booking-table tbody tr {
+  transition: 0.3s ease;
+}
+
+.booking-table tbody tr:hover {
+  background: rgba(0,255,150,0.06);
+  box-shadow: inset 0 0 10px rgba(0,255,150,0.15);
+}
+
+.booking-table td {
+  padding: 14px 16px;
+  color: #eee;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-size: 14px;
+}
+
+/* Status pill */
+
+.status {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.status.new {
+  background: rgba(0,255,150,0.2);
+  color: #00ff99;
+  box-shadow: 0 0 8px rgba(0,255,150,0.4);
+}
+
+/* Delete button */
+
+.delete-btn {
+  background: linear-gradient(135deg, #ff2a2a, #ff0000);
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.delete-btn:hover {
+  box-shadow: 0 0 12px rgba(255,0,0,0.7);
+  transform: scale(1.05);
+}
+
+.status.contacted {
+  background: rgba(0,120,255,0.2);
+  color: #4da3ff;
+  box-shadow: 0 0 8px rgba(77,163,255,0.5);
+}
+
+.status.closed {
+  background: rgba(255,180,0,0.2);
+  color: #ffb400;
+  box-shadow: 0 0 8px rgba(255,180,0,0.5);
+}

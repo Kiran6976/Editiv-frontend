@@ -1,0 +1,141 @@
+.results-wrapper {
+  padding: 140px 8%;
+  text-align: center;
+}
+
+.results-wrapper h2 {
+  font-size: 42px;
+  margin-bottom: 90px;
+}
+
+.results-cards {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Glass cards */
+
+.result-card {
+  padding: 28px 30px;
+  border-radius: 18px;
+  text-align: left;
+  max-width: 600px;
+}
+
+/* staggered layout */
+
+.card-0 {
+  align-self: flex-start;
+}
+
+.card-1 {
+  align-self: flex-end;
+}
+
+.card-2 {
+  align-self: flex-start;
+}
+
+.result-card {
+  padding: 30px;
+  border-radius: 18px;
+  max-width: 750px;
+}
+
+.result-content {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Big logo container */
+
+.logo-box {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.logo-box img {
+  width: 70%;
+  object-fit: contain;
+}
+
+/* Text area */
+
+.result-text h3 {
+  color: var(--neon);
+  font-size: 20px;
+}
+
+.result-text h4 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.result-text p {
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.highlight-result {
+  font-size: 20px;
+  color: var(--neon);
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px var(--neon-soft);
+}
+
+/* ===========================
+   HOVER MICRO-INTERACTION
+=========================== */
+
+.result-card {
+  transition: 
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease;
+  border: 1px solid rgba(0,255,150,0.18);
+}
+
+/* lift + glow on hover */
+
+.result-card:hover {
+  transform: translateY(-10px) scale(1.015);
+
+  box-shadow:
+    0 0 25px rgba(0,255,150,0.4),
+    0 0 60px rgba(0,255,150,0.25);
+
+  border: 1px solid rgba(0,255,150,0.4);
+}
+
+/* logo glow boost */
+
+.result-card:hover .logo-box {
+  box-shadow:
+    0 0 18px rgba(0,255,150,0.7),
+    inset 0 0 12px rgba(0,255,150,0.3);
+  transition: 0.35s ease;
+}
+
+/* text pop */
+
+.result-card:hover .highlight-result {
+  text-shadow:
+    0 0 18px rgba(0,255,150,0.9),
+    0 0 40px rgba(0,255,150,0.4);
+}
+
+/* smooth logo base */
+
+.logo-box {
+  transition: box-shadow 0.35s ease;
+}
