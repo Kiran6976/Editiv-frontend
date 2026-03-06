@@ -113,7 +113,10 @@ export default function ManageFolders() {
   return (
     <div className="manage-wrapper">
 
-      <h2 className="manage-title">Manage Portfolio</h2>
+      <div className="manage-header">
+        <h2 className="manage-title">Manage Portfolio</h2>
+        <p className="manage-sub">Click a folder to view and manage its projects</p>
+      </div>
 
       <div className="folder-grid">
 
@@ -121,7 +124,7 @@ export default function ManageFolders() {
 
           <div key={folder._id} className="folder-card">
 
-            {/* IMAGE + EDIT BUTTON */}
+            {/* IMAGE + EDIT + COUNT PILL */}
             <div className="folder-image-box">
 
               <img
@@ -137,19 +140,15 @@ export default function ManageFolders() {
                 ✎
               </button>
 
+              <span className="folder-count-pill">
+                {folder.projectCount} {folder.projectCount === 1 ? "Project" : "Projects"}
+              </span>
+
             </div>
 
-            {/* CENTERED CONTENT */}
+            {/* INFO ROW */}
             <div className="folder-info">
-
-              <div className="folder-name">
-                {folder.name}
-              </div>
-
-              <div className="project-count">
-                {folder.projectCount} Projects
-              </div>
-
+              <div className="folder-name">{folder.name}</div>
               <button
                 className="delete-folder-btn icon-btn"
                 onClick={() => handleDelete(folder._id)}
@@ -157,7 +156,6 @@ export default function ManageFolders() {
                 <FiTrash2 />
                 Delete
               </button>
-
             </div>
 
           </div>

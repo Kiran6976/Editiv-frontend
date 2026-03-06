@@ -2,14 +2,18 @@ import { useState } from "react";
 import axios from "axios";
 import "../styles/adminLogin.css";
 import API from "../config/api";
+import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
 
     try {
       const res = await axios.post(`${API}/admin/login`, {
@@ -18,46 +22,80 @@ export default function AdminLogin() {
       });
 
       localStorage.setItem("adminToken", res.data.token);
-
-      // later redirect to dashboard
       window.location.href = "/admin/dashboard";
 
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.response?.data?.message || "Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="admin-login-wrapper">
+    <div className="al-wrapper">
 
-      <form className="admin-login-card glass glow" onSubmit={handleLogin}>
+      {/* Background glow orbs */}
+      <div className="al-orb al-orb-1" />
+      <div className="al-orb al-orb-2" />
 
-        <h2>Admin Login</h2>
+      <div className="al-card">
 
-        {error && <p className="error">{error}</p>}
+        {/* Logo / Brand */}
+        <div className="al-brand">
+          <img src="/Editiv.png" alt="EditIV" className="al-logo" />
+          <p className="al-brand-label">Admin Portal</p>
+        </div>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <h2 className="al-title">Welcome back</h2>
+        <p className="al-subtitle">Sign in to manage your workspace</p>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        {error && (
+          <div className="al-error">
+            <span>⚠ {error}</span>
+          </div>
+        )}
 
-        <button type="submit" className="btn-neon">
-          Login
-        </button>
+        <form className="al-form" onSubmit={handleLogin}>
 
-      </form>
+          <div className="al-field">
+            <FiMail className="al-field-icon" />
+            <input
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </div>
 
+          <div className="al-field">
+            <FiLock className="al-field-icon" />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+
+          <button type="submit" className="al-btn" disabled={loading}>
+            {loading ? (
+              <span className="al-spinner" />
+            ) : (
+              <>
+                <FiLogIn /> Sign In
+              </>
+            )}
+          </button>
+
+        </form>
+
+        <p className="al-footer">EditIV © {new Date().getFullYear()}</p>
+
+      </div>
     </div>
   );
 }

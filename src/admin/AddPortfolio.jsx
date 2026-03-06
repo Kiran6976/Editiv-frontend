@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/addPortfolio.css";
-
 import API from "../config/api";
+import { FiUploadCloud, FiPlusCircle } from "react-icons/fi";
 
 
 export default function AddPortfolio() {
@@ -180,49 +180,68 @@ export default function AddPortfolio() {
   // =========================
   return (
     <div className="add-portfolio-container">
-      <h2 className="section-title">Add Portfolio</h2>
+
+      <div className="ap-header">
+        <h2 className="ap-title">Add Portfolio</h2>
+        <p className="ap-sub">Upload a new project to your portfolio</p>
+      </div>
 
       <div className="portfolio-box">
-        <input
-          type="text"
-          placeholder="Project Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
 
-        <select value={folderId} onChange={(e) => setFolderId(e.target.value)}>
-          <option value="">Select Folder</option>
-          {folders.map((folder) => (
-            <option key={folder._id} value={folder._id}>
-              {folder.name}
-            </option>
-          ))}
-        </select>
+        {/* Project Title */}
+        <div className="ap-field">
+          <label className="ap-label">Project Title</label>
+          <input
+            type="text"
+            placeholder="e.g. Brand Campaign for Aurelia"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
 
+        {/* Select Folder */}
+        <div className="ap-field">
+          <label className="ap-label">Folder</label>
+          <select value={folderId} onChange={(e) => setFolderId(e.target.value)}>
+            <option value="">Select Folder</option>
+            {folders.map((folder) => (
+              <option key={folder._id} value={folder._id}>
+                {folder.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Create New Folder Toggle */}
         <span
           className="create-folder-toggle"
           onClick={() => setShowCreateFolder(!showCreateFolder)}
         >
-          + Create New Folder
+          <FiPlusCircle /> {showCreateFolder ? "Cancel" : "Create New Folder"}
         </span>
 
         {/* CREATE FOLDER SECTION */}
         {showCreateFolder && (
           <div className="create-folder-box">
-            <input
-              type="text"
-              placeholder="Folder Name"
-              value={folderName}
-              onChange={(e) => setFolderName(e.target.value)}
-            />
+            <div className="ap-field">
+              <label className="ap-label">Folder Name</label>
+              <input
+                type="text"
+                placeholder="e.g. Social Media Campaigns"
+                value={folderName}
+                onChange={(e) => setFolderName(e.target.value)}
+              />
+            </div>
 
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFolderImageChange}
-            />
+            <div className="ap-field">
+              <label className="ap-label">Folder Thumbnail</label>
+              <label className="ap-file-label">
+                <FiUploadCloud className="ap-file-icon" />
+                {folderImage ? folderImage.name : "Choose thumbnail image"}
+                <input type="file" accept="image/*" onChange={handleFolderImageChange} />
+              </label>
+            </div>
 
-            {/* ✅ Folder image preview */}
             {folderPreview && (
               <div className="image-preview">
                 <img src={folderPreview} alt="Folder Preview" />
@@ -235,30 +254,34 @@ export default function AddPortfolio() {
               disabled={creatingFolder}
             >
               {creatingFolder ? (
-                <span className="btn-loading">
-                  <span className="spinner" />
-                  Creating...
-                </span>
-              ) : (
-                "Create Folder"
-              )}
+                <span className="btn-loading"><span className="spinner" /> Creating...</span>
+              ) : "Create Folder"}
             </button>
           </div>
         )}
 
-        <textarea
-          placeholder="Project Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+        <div className="ap-divider" />
 
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handlePortfolioImageChange}
-        />
+        {/* Description */}
+        <div className="ap-field">
+          <label className="ap-label">Description (optional)</label>
+          <textarea
+            placeholder="Brief description of the project..."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
 
-        {/* ✅ Portfolio image preview */}
+        {/* Portfolio Image */}
+        <div className="ap-field">
+          <label className="ap-label">Project Image</label>
+          <label className="ap-file-label">
+            <FiUploadCloud className="ap-file-icon" />
+            {image ? image.name : "Click to choose an image"}
+            <input type="file" accept="image/*" onChange={handlePortfolioImageChange} />
+          </label>
+        </div>
+
         {imagePreview && (
           <div className="image-preview">
             <img src={imagePreview} alt="Portfolio Preview" />
@@ -271,14 +294,10 @@ export default function AddPortfolio() {
           disabled={uploading}
         >
           {uploading ? (
-            <span className="btn-loading">
-              <span className="spinner" />
-              Uploading...
-            </span>
-          ) : (
-            "Upload Portfolio"
-          )}
+            <span className="btn-loading"><span className="spinner" /> Uploading...</span>
+          ) : "Upload Portfolio"}
         </button>
+
       </div>
     </div>
   );
