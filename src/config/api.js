@@ -1,4 +1,4 @@
-// Central API base URL — change only here when switching environments
-const API = "https://editiv-backend.onrender.com/api";
+// Vite automatically loads .env.development (npm run dev) or .env.production (npm run build)
+const API = import.meta.env.VITE_API_URL;
 
 export default API;
