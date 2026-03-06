@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import "../styles/navbar.css";
-import { FiBriefcase, FiBarChart2, FiDollarSign, FiGrid, FiMail } from "react-icons/fi";
+import { FiBriefcase, FiBarChart2, FiDollarSign, FiGrid, FiMail, FiMenu, FiX } from "react-icons/fi";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,7 @@ export default function Navbar() {
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMobileMenuOpen(false); // Close menu on click
   };
 
   return (
@@ -24,8 +26,12 @@ export default function Navbar() {
         <img src="/Editiv.png" alt="EditIV Logo" />
       </div>
 
+      {/* Hamburger Icon (Mobile Only) */}
+      <div className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        {mobileMenuOpen ? <FiX /> : <FiMenu />}
+      </div>
 
-      <ul className="nav-links">
+      <ul className={`nav-links ${mobileMenuOpen ? "nav-active" : ""}`}>
         <li onClick={() => scrollTo("portfolio")}><FiBriefcase /> Portfolio</li>
         <li onClick={() => scrollTo("results")}><FiBarChart2 /> Results</li>
         <li onClick={() => scrollTo("services")}><FiGrid /> Services</li>
