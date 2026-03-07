@@ -5,46 +5,7 @@ import { useCountUp } from "./ScrollAnimations";
 import "../styles/hero.css";
 
 
-/* ── Floating Social Icons ── */
-function FloatingSocialIcons() {
-  const icons = [
-    <FaFacebookF />, <FaInstagram />, <FaTwitter />, <FaLinkedinIn />, <FaTiktok />, <FaYoutube />,
-    <FiHeart />, <FiMessageCircle />, <FiShare2 />, <FiThumbsUp />,
-    <FaInstagram />, <FaYoutube />, <FiHeart />, <FaTiktok />, <FiThumbsUp />
-  ];
-
-  const floatingItems = icons.map((icon, i) => ({
-    id: i,
-    icon,
-    left: `${5 + Math.random() * 90}%`,
-    top: `${5 + Math.random() * 90}%`,
-    size: 20 + Math.random() * 24, // 20px to 44px
-    delay: Math.random() * 5,
-    duration: 6 + Math.random() * 8, // slower float
-    opacity: 0.15 + Math.random() * 0.35,
-  }));
-
-  return (
-    <div className="floating-socials" aria-hidden="true">
-      {floatingItems.map((item) => (
-        <span
-          key={item.id}
-          className="float-social-icon"
-          style={{
-            left: item.left,
-            top: item.top,
-            fontSize: `${item.size}px`,
-            opacity: item.opacity,
-            animationDelay: `${item.delay}s`,
-            animationDuration: `${item.duration}s`,
-          }}
-        >
-          {item.icon}
-        </span>
-      ))}
-    </div>
-  );
-}
+/* ── Removed 3D Floating Elements ── */
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -76,12 +37,13 @@ export default function Hero() {
 
   return (
     <section className={`hero ${loaded ? "hero-loaded" : ""}`} id="home">
-      {/* Dark BG with subtle radial */}
+      {/* ── BACKGROUND ── */}
       <div className="hero-bg" aria-hidden="true" />
-
-      {/* Floating social media icons */}
-      <FloatingSocialIcons />
-
+      <div className="hero-network-bg" aria-hidden="true">
+        <img src="/3d/hero_dark_crystal_bg.png" alt="" />
+        {/* CSS particle nodes overlay */}
+        <div className="network-nodes" />
+      </div>
 
       {/* Abstract glow orbs */}
       <div className="hero-abstract" aria-hidden="true">
@@ -90,66 +52,82 @@ export default function Hero() {
         <div className="grain" />
       </div>
 
-      {/* ── CONTENT ── */}
-      <div className="hero-content">
-        {/* Badge */}
-        <div className={`hero-badge ${loaded ? "animate-in" : ""}`}>
-          Performance + Creative Studio
-          <span className="dot" />
-        </div>
+      {/* ── GLASS PANEL ── */}
+      <div className="hero-glass-panel">
 
-        {/* Heading */}
-        <h1 className={`hero-heading ${loaded ? "animate-in" : ""}`}>
-          We Engineer <span className="neon">Growth</span>
-          <br />
-          for Modern Brands
-        </h1>
+        {/* ── CONTENT ── */}
+        <div className="hero-content">
+          {/* Badge */}
+          <div className={`hero-badge ${loaded ? "animate-in" : ""}`}>
+            Performance + Creative Studio
+            <span className="dot" />
+          </div>
 
-        {/* CTAs */}
-        <div className={`hero-actions ${loaded ? "animate-in" : ""}`}>
-          <button className="btn-glass-primary" onClick={handleWhatsApp}>
-            Let's Talk Growth <FiArrowUpRight />
-          </button>
+          {/* Heading */}
+          <h1 className={`hero-heading ${loaded ? "animate-in" : ""}`}>
+            We Engineer <span className="neon-text">Growth</span>
+            <br />
+            for Modern Brands
+          </h1>
 
-          <button className="btn-ghost" onClick={openShowreel} aria-label="Watch showreel">
-            Watch Showreel <FiPlay className="ghost-play-icon" />
-          </button>
-        </div>
+          {/* CTA Buttons */}
+          <div className={`hero-cta ${loaded ? "animate-in" : ""}`}>
+            <a className="btn-primary" onClick={handleWhatsApp}>
+              Let's Talk Growth <FiArrowUpRight className="arrow" />
+            </a>
+            <button className="btn-secondary" onClick={openShowreel}>
+              Watch Showreel <FiPlay className="ghost-play-icon" />
+            </button>
+          </div>
 
-        {/* Stat Cards Row */}
-        <div className={`hero-stat-cards ${loaded ? "animate-in" : ""}`}>
-          <div className="stat-card-hero">
-            <span className="stat-val">+128%</span>
-            <span className="stat-lbl">Campaign Lift</span>
-          </div>
-          <div className="stat-card-hero">
-            <span className="stat-val">1,240</span>
-            <span className="stat-lbl">Leads Generated</span>
-          </div>
-          <div className="stat-card-hero">
-            <span className="stat-val">300+</span>
-            <span className="stat-lbl">Creative Output</span>
-          </div>
-        </div>
+          {/* Hero Stats Container */}
+          <div className={`hero-stats-wrap ${loaded ? "animate-in" : ""}`}>
+            {/* Upper boxes */}
+            <div className="hero-stats-upper">
+              <div className="stat-box">
+                <span className="stat-val">+128%</span>
+                <span className="stat-label">Campaign Lift</span>
+              </div>
+              <div className="stat-box">
+                <span className="stat-val">1,240</span>
+                <span className="stat-label">Leads Generated</span>
+              </div>
+              <div className="stat-box">
+                <span className="stat-val">300+</span>
+                <span className="stat-label">Creative Output</span>
+              </div>
+            </div>
 
-        {/* Bottom Metrics Bar */}
-        <div className={`hero-bottom-bar ${loaded ? "animate-in" : ""}`}>
-          <div className="bottom-metric">
-            <span className="bm-num">{clientCount}+</span>
-            <span className="bm-label"> Clients</span>
+            {/* Lower wide bar */}
+            <div className={`hero-stats-lower ${loaded ? "animate-in" : ""}`}>
+              <div className="bm-item">
+                <span className="bm-val">
+                  {clientCount}
+                  <span style={{ color: "var(--neon)" }}>+</span>
+                </span>
+                <span className="bm-label"> Clients</span>
+              </div>
+              <div className="bm-divider" />
+              <div className="bm-item">
+                <span className="bm-val">
+                  {roasCount}
+                  <span style={{ color: "var(--neon)" }}>x</span>
+                </span>
+                <span className="bm-label"> Avg ROAS</span>
+              </div>
+              <div className="bm-divider" />
+              <div className="bm-item">
+                <span className="bm-val">
+                  ₹{adSpendCount}
+                  <span style={{ color: "var(--neon)" }}>Cr+</span>
+                </span>
+                <span className="bm-label"> Ad Spend</span>
+              </div>
+            </div>
           </div>
-          <div className="bottom-divider" />
-          <div className="bottom-metric">
-            <span className="bm-num">{roasCount}x</span>
-            <span className="bm-label"> Avg ROAS</span>
-          </div>
-          <div className="bottom-divider" />
-          <div className="bottom-metric">
-            <span className="bm-num">₹{adSpendCount}Cr+</span>
-            <span className="bm-label"> Ad Spend</span>
-          </div>
-        </div>
-      </div>
+        </div> {/* End hero content */}
+      </div> {/* End glass panel */}
+
     </section>
   );
 }
