@@ -2,40 +2,6 @@ import "../styles/pricing.css";
 
 const packages = [
   {
-    groupTitle: "Marketing Campaign Packages",
-    note: "Ad Budget not included in package price.",
-    gridClass: "pricing-grid-2",
-    plans: [
-      {
-        title: "Silver",
-        subtitle: "Perfect for testing the market",
-        price: "₹6,000 + Ad Budget",
-        whatsappMessage:
-          "Hi, I'm interested in the Marketing Campaign Package (Silver). Please share details.",
-        items: [
-          { text: "1 Ad Campaign", included: true },
-          { text: "1 Graphic", included: true },
-          { text: "1 Carousel", included: true },
-          { text: "1 Video Reel", included: true },
-        ],
-      },
-      {
-        title: "Gold",
-        subtitle: "Built for faster growth",
-        price: "₹12,000 + Ad Budget",
-        badge: "Most Popular",
-        whatsappMessage:
-          "Hi, I'm interested in the Marketing Campaign Package (Gold). Please share details.",
-        items: [
-          { text: "2 Ad Campaigns", included: true },
-          { text: "2 Graphics", included: true },
-          { text: "2 Carousels", included: true },
-          { text: "2 Video Reels", included: true },
-        ],
-      },
-    ],
-  },
-  {
     groupTitle: "Social Media Management",
     note: "(Ad budget not included)",
     gridClass: "pricing-grid-3",
@@ -86,6 +52,40 @@ const packages = [
           { text: "Content Research", included: true },
           { text: "Meme Marketing", included: true },
           { text: "Marketing Strategies", included: true },
+        ],
+      },
+    ],
+  },
+  {
+    groupTitle: "Marketing Campaign Packages",
+    note: "Ad Budget not included in package price.",
+    gridClass: "pricing-grid-2",
+    plans: [
+      {
+        title: "Silver",
+        subtitle: "Perfect for testing the market",
+        price: "₹6,000 + Ad Budget",
+        whatsappMessage:
+          "Hi, I'm interested in the Marketing Campaign Package (Silver). Please share details.",
+        items: [
+          { text: "1 Ad Campaign", included: true },
+          { text: "1 Graphic", included: true },
+          { text: "1 Carousel", included: true },
+          { text: "1 Video Reel", included: true },
+        ],
+      },
+      {
+        title: "Gold",
+        subtitle: "Built for faster growth",
+        price: "₹12,000 + Ad Budget",
+        badge: "Most Popular",
+        whatsappMessage:
+          "Hi, I'm interested in the Marketing Campaign Package (Gold). Please share details.",
+        items: [
+          { text: "2 Ad Campaigns", included: true },
+          { text: "2 Graphics", included: true },
+          { text: "2 Carousels", included: true },
+          { text: "2 Video Reels", included: true },
         ],
       },
     ],

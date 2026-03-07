@@ -11,6 +11,22 @@ import ScrollReveal, { useScrollReveal } from "./ScrollAnimations";
 
 const services = [
   {
+    title: "Social Media Marketing",
+    icon: FiTarget,
+    tagline: "Reach the right people, the right way.",
+    points: [
+      "Meta ads (Facebook & Instagram)",
+      "Lead & sales campaigns",
+      "Smart targeting & scaling",
+    ],
+  },
+  {
+    title: "Social Media Management",
+    icon: FiShare2,
+    tagline: "We manage, you grow.",
+    points: ["Content planning", "Creative posting", "Page growth & engagement"],
+  },
+  {
     title: "Graphic Design",
     icon: FiPenTool,
     tagline: "Designs that stop scrolling and start conversations.",
@@ -31,22 +47,6 @@ const services = [
     icon: FiFilm,
     tagline: "From concept to final cut.",
     points: ["Brand commercials", "Product ad films", "Campaign videos"],
-  },
-  {
-    title: "Social Media Marketing",
-    icon: FiTarget,
-    tagline: "Reach the right people, the right way.",
-    points: [
-      "Meta ads (Facebook & Instagram)",
-      "Lead & sales campaigns",
-      "Smart targeting & scaling",
-    ],
-  },
-  {
-    title: "Social Media Management",
-    icon: FiShare2,
-    tagline: "We manage, you grow.",
-    points: ["Content planning", "Creative posting", "Page growth & engagement"],
   },
 ];
 
