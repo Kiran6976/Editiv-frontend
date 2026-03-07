@@ -72,13 +72,13 @@ const packages = [
         ],
       },
       {
-        title: "Platinum",
+        title: "Diamond",
         subtitle: "The complete growth engine",
         price: "₹30,000",
         badge: "Premium",
-        isPlatinum: true,
+        isDiamond: true,
         whatsappMessage:
-          "Hi, I'm interested in Social Media Management (Platinum). Please share details.",
+          "Hi, I'm interested in Social Media Management (Diamond). Please share details.",
         items: [
           { text: "20 Graphics", included: true },
           { text: "12 Videos", included: true },
@@ -106,10 +106,10 @@ export default function PricingSection() {
 
           <div className={`pricing-grid ${group.gridClass}`}>
             {group.plans.map((plan, i) => (
-              <div key={i} className={`pricing-card-wrap ${plan.isPlatinum ? "platinum-wrap" : ""}`}>
-                {plan.badge && <div className={`pricing-badge ${plan.isPlatinum ? "platinum-badge" : ""}`}>{plan.badge}</div>}
+              <div key={i} className={`pricing-card-wrap ${plan.isDiamond ? "diamond-wrap" : ""}`}>
+                {plan.badge && <div className={`pricing-badge ${plan.isDiamond ? "diamond-badge" : ""}`}>{plan.badge}</div>}
 
-                <div className={`pricing-card ${plan.badge ? "featured" : ""} ${plan.isPlatinum ? "platinum-card" : `${plan.title.toLowerCase()}-card`}`}>
+                <div className={`pricing-card ${plan.badge ? "featured" : ""} ${plan.isDiamond ? "diamond-card" : `${plan.title.toLowerCase()}-card`}`}>
                   <div className="card-inner">
                     <div className="plan-top">
                       <h4 className={`plan-title ${plan.title.toLowerCase()}-title`}>{plan.title}</h4>
@@ -118,7 +118,7 @@ export default function PricingSection() {
                       ) : null}
                     </div>
 
-                    <div className={`plan-price ${plan.isPlatinum ? "platinum-price" : ""}`}>{plan.price}</div>
+                    <div className={`plan-price ${plan.isDiamond ? "diamond-price" : ""}`}>{plan.price}</div>
 
                     <ul className="plan-list">
                       {plan.items.map((item, idx) => (
@@ -129,7 +129,7 @@ export default function PricingSection() {
                     </ul>
 
                     <a
-                      className={`plan-btn ${plan.isPlatinum ? "platinum-btn" : ""}`}
+                      className={`plan-btn ${plan.isDiamond ? "diamond-btn" : ""}`}
                       href={`https://wa.me/919436452223?text=${encodeURIComponent(
                         plan.whatsappMessage
                       )}`}
