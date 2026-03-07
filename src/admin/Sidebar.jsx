@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/sidebar.css";
 import {
@@ -6,6 +7,8 @@ import {
   FiFolderPlus,
   FiCalendar,
   FiLogOut,
+  FiMenu,
+  FiX,
 } from "react-icons/fi";
 
 const navItems = [
@@ -17,41 +20,64 @@ const navItems = [
 
 export default function Sidebar() {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const logout = () => {
     localStorage.removeItem("adminToken");
     navigate("/admin/login");
   };
 
-  return (
-    <aside className="sidebar">
+  const close = () => setOpen(false);
 
-      {/* Brand */}
-      <div className="sb-brand">
-        <img src="/Editiv.png" alt="EditIV" className="sb-logo" />
-        <span className="sb-tag">Admin</span>
+  return (
+    <>
+      {/* ── Mobile top bar ── */}
+      <div className="sb-mobile-bar">
+        <img src="/Editiv.png" alt="EditIV" className="sb-mobile-logo" />
+        <button className="sb-hamburger" onClick={() => setOpen(true)} aria-label="Open menu">
+          <FiMenu />
+        </button>
       </div>
 
-      {/* Nav */}
-      <nav className="sb-nav">
-        {navItems.map(({ to, icon: Icon, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            className={({ isActive }) => `sb-link ${isActive ? "sb-active" : ""}`}
-          >
-            <Icon className="sb-icon" />
-            <span>{label}</span>
-          </NavLink>
-        ))}
-      </nav>
+      {/* ── Overlay backdrop ── */}
+      {open && <div className="sb-overlay" onClick={close} />}
 
-      {/* Logout */}
-      <button className="sb-logout" onClick={logout}>
-        <FiLogOut />
-        <span>Logout</span>
-      </button>
+      {/* ── Sidebar drawer ── */}
+      <aside className={`sidebar ${open ? "sb-open" : ""}`}>
 
-    </aside>
+        {/* Close button (mobile only) */}
+        <button className="sb-close-btn" onClick={close} aria-label="Close menu">
+          <FiX />
+        </button>
+
+        {/* Brand */}
+        <div className="sb-brand">
+          <img src="/Editiv.png" alt="EditIV" className="sb-logo" />
+          <span className="sb-tag">Admin</span>
+        </div>
+
+        {/* Nav */}
+        <nav className="sb-nav">
+          {navItems.map(({ to, icon: Icon, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={close}
+              className={({ isActive }) => `sb-link ${isActive ? "sb-active" : ""}`}
+            >
+              <Icon className="sb-icon" />
+              <span>{label}</span>
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Logout */}
+        <button className="sb-logout" onClick={logout}>
+          <FiLogOut />
+          <span>Logout</span>
+        </button>
+
+      </aside>
+    </>
   );
 }

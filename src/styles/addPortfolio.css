@@ -249,3 +249,37 @@
 .section-title {
   display: none;
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .add-portfolio-container {
+    max-width: 100%;
+  }
+
+  .portfolio-box {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .ap-title {
+    font-size: 20px;
+  }
+
+  .ap-header {
+    margin-bottom: 20px;
+  }
+
+  .create-folder-box {
+    padding: 18px 14px;
+  }
+
+  .btn-neon,
+  .btn-main {
+    font-size: 13.5px;
+    padding: 12px;
+  }
+
+  .image-preview img {
+    max-height: 180px;
+  }
+}

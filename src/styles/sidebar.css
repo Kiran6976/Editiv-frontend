@@ -9,6 +9,9 @@
   padding: 28px 16px;
   gap: 6px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 200;
 }
 
 /* ===== BRAND ===== */
@@ -97,4 +100,98 @@
 .sb-logout:hover {
   background: rgba(255, 60, 60, 0.15);
   color: #ff6b6b;
+}
+
+/* ===== CLOSE BUTTON (mobile only) ===== */
+.sb-close-btn {
+  display: none;
+  align-self: flex-end;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sb-close-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===== MOBILE TOP BAR ===== */
+.sb-mobile-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #080e0a;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.sb-mobile-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.sb-hamburger {
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 10px;
+  color: #00ff88;
+  font-size: 20px;
+  padding: 7px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.sb-hamburger:hover {
+  background: rgba(0, 255, 136, 0.15);
+}
+
+/* ===== OVERLAY ===== */
+.sb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 150;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  /* Show mobile top bar */
+  .sb-mobile-bar {
+    display: flex;
+  }
+
+  /* Show close button inside drawer */
+  .sb-close-btn {
+    display: flex;
+  }
+
+  /* Sidebar becomes a fixed slide-out drawer */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 200;
+    transform: translateX(-100%);
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar.sb-open {
+    transform: translateX(0);
+  }
 }

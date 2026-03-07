@@ -2,13 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import "../styles/adminLogin.css";
 import API from "../config/api";
-import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
+import { FiMail, FiLock, FiLogIn, FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -72,13 +73,22 @@ export default function AdminLogin() {
           <div className="al-field">
             <FiLock className="al-field-icon" />
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               autoComplete="current-password"
             />
+            <button
+              type="button"
+              className="al-eye-btn"
+              onClick={() => setShowPassword((v) => !v)}
+              tabIndex={-1}
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
           </div>
 
           <button type="submit" className="al-btn" disabled={loading}>

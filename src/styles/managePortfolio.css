@@ -244,3 +244,36 @@
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .folder-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .manage-title {
+    font-size: 20px;
+  }
+
+  .edit-box {
+    width: calc(100vw - 32px);
+    padding: 24px 20px;
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .folder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .folder-info {
+    flex-wrap: wrap;
+  }
+
+  .delete-folder-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
