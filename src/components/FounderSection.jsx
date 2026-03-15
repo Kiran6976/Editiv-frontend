@@ -8,22 +8,14 @@ export default function FounderSection() {
 
       <div className="founder-wrapper">
 
-        {/* IMAGE STACK */}
+        {/* IMAGE */}
         <div className="founder-image-stack">
 
-          <div className="stack glow"></div>
-          <div className="stack layer"></div>
-
           <img
-            src="/founder.png"
-            alt="Founder"
+            src="/parthiv.png?v=2"
+            alt="Parthiv Chakraborty"
             className="founder-img"
           />
-
-          <div className="social-badge">
-            Ayushman Pandita <br />
-            <span>400,000+</span>
-          </div>
 
         </div>
 
@@ -32,20 +24,16 @@ export default function FounderSection() {
 
           <p className="founder-small">Meet The Founder</p>
 
-          <h2>Ayushman Pandita</h2>
-
-          <h4>250,000+ Youtube | 150,000+ Instagram</h4>
-
+          <h2 className="neon-text" style={{ display: 'inline-block' }}>Parthiv Chakraborty</h2>
+          <br /><br />
           <p>
-            As an entrepreneur and content creator, Ayushman has a passion for
-            creating exceptional content that resonates with audiences. His journey
-            began in February 2021 when he started making finance videos on YouTube.
+            As an entrepreneur and content creator, Parthiv has a passion for
+            creating exceptional content that resonates with audiences.
           </p>
 
           <p>
-            After his success on YouTube, he launched Instagram in August 2022 and
-            scaled to 1 lakh followers in under 4 months. He holds a BTech in
-            Computer Science and previously worked at HSBC and BharatPe.
+            With a strong background in digital media and social growth, he leads
+            the Editiv team to deliver results-driven creative services.
           </p>
 
         </div>
